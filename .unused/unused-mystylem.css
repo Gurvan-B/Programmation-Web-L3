@@ -1,0 +1,77 @@
+body {
+  background-color: lightblue;
+}
+thead {
+  /* background-color: #353148; */
+  text-align: center;
+}
+
+/* th{
+  color: #FFFFFF;
+} */
+
+thead:first-child tr:first-child th:first-child, tbody:first-child tr:first-child td:first-child {
+    border-radius: 4px 0 0 0;
+}
+
+thead tr {
+  /* border: 5px solid; */
+  /* padding: 10px; */
+  color: #FFFFFF;
+  /* border-top-left-radius: 10px;
+  border-top-right-radius: 10px; */
+  /* border: 2px solid #353148; */
+  background-color: #353148;
+
+        /* text-align: center; */
+}
+
+/* .topround{
+  background-color: red;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+} */
+/* .botround{
+  border-bottom-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+} */
+
+table{
+  border-collapse:collapse;
+  border: 10px solid #353148;
+  border-radius: 25px;
+  /* border-collapse:separate;
+    border:solid black 1px;
+    border-radius:6px; */
+}
+
+
+/* td {
+  /* border: 20px groove; */
+  /* border: 10px solid; */
+  /* background-color: red; */
+  /* border-style: hidden; */
+/* }  */
+
+
+
+tbody tr:nth-child(odd) {
+  /* border: 10px solid #FFFFFF; */
+  background-color: #FFFFFF;
+  text-align: center;
+}
+
+/* td {
+  border-collapse: collapse;
+} */
+
+tbody tr:nth-child(even) {
+  /* border: 10px solid #F5F5F5; */
+  background-color: #F5F5F5;
+  text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: brown;
+}

@@ -1,0 +1,76 @@
+* {
+    box-sizing:border-box;
+    margin: 0;
+    padding:0;
+}
+
+div.comments{
+    border-top: 1px solid gray;
+    /* margin:40px, 40px, 0px, 40px; */ /*bug de css ?? les deux ne font pas la même chose ! */
+    margin-left:40px;
+    margin-right:40px;
+    margin-top:40px;
+    margin-bottom:0px;
+}
+
+div.comment{
+    display:flex;
+    /* min-height: 70px; */
+    padding-bottom:10px;
+    padding-top:10px;
+    /* margin-top:10px; */
+    /* margin-bottom:10px; */
+}
+
+div.headertitle{
+    margin-top:30px;
+    margin-bottom:30px;
+}
+
+img.comicon{
+    margin:5px;
+    margin-right:10px;
+    height:40px;
+    width:40px;
+}
+
+div.combody{
+    display:flex;
+    flex-direction: column;
+}
+
+div.comhead span{
+    margin: 0px, 10px, 10px,10px;
+}
+
+div.comhead span.auteur{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+div.comhead span.date{
+    font-family: "proximanova,arial,sans-serif";
+    font-weight: 500;
+    font-size: 14px;
+    color:gray;
+}
+
+div.comcontent p{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-top:5px;
+
+}
+
+input.addComment{
+    /* border-radius:50px; */
+    border:none;
+    border-bottom: solid 1px gray;
+    width: 80%;
+    height: 20px;
+    padding-left:5px;
+}
+
+div.newcomment{
+    width:100%
+}

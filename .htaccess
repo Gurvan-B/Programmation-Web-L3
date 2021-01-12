@@ -1,0 +1,36 @@
+ErrorDocument 404 /misc/404.php
+# Redirige l'erreur forbiden
+ErrorDocument 403 /misc/404.php
+
+Options All -Indexes
+
+# ////  Rewrite  ////////
+
+RewriteEngine on
+
+# Retire les extensions .php mais erreur si on rajoute un / dans les urls
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [NC,L]
+
+
+
+
+# ////  Ne marche pas  /////
+
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteCond %{REQUEST_FILENAME} -f
+# RewriteRule ^user_list/([0-9]+) /user_lists/user_list.php?tab_id=$1 [NC,L]
+
+# Marchait avant mais ne marche plus
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteCond %{REQUEST_FILENAME}\.php -f
+# RewriteRule ^accueil /main/accueil.php [NC,L]
+
+# ////////////////////////////
+
+# Desactivé : Sert à rediriger toutes les urls sur le fichier main (?)
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteCond %{REQUEST_URI} !^main/
+# RewriteRule ^(.*)$ main/$1 [NC,L]

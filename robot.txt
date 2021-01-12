@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /functions/
+Disallow: /unused/
+
+User-agent: Googlebot
+Disallow: /misc/
+
+Sitemap: http://hearthstonepw.ddns.net/
