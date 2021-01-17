@@ -1,9 +1,12 @@
 <?php
+// require_once "../functions/session.php";
+// session_start();
 
 if (isset($_GET['tab_id'])){
     require_once "../functions/db.php";
-
-    
+	require_once "../functions/session.php";
+	session_start();
+	
 	$tab_id = $_GET['tab_id'];
 	
 	$request = request("SELECT title,color FROM tableaux WHERE tab_id=?",[$tab_id]);
@@ -56,7 +59,7 @@ if ($resultNrows > 0) :
 	foreach ($result as $row) : ?>
 		<tr>
 			<td>
-			<a href= " <?php echo "https://www.hearthstone-decks.com/carte/voir/" . $row['nom']; ?> " class=tablink >  <?php echo $row['nom']; ?>  </a>
+			<a href= "<?php echo "https://www.hearthstone-decks.com/carte/voir/" . $row['nom']; ?>" class=tablink ><?= $row['nom']; ?></a>
 			</td>
 
 			<td>

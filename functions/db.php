@@ -23,6 +23,12 @@ function request($sql,$param){
   if (isset($pdo)){
     try {
       $prep = $pdo->prepare($sql);
+      foreach ($param as &$p){ // le & permet de modifier le tableau pendant qu'il est parcouru
+        if (isset($p)){
+          $p = htmlspecialchars($p);
+        }
+      }
+      // var_dump($param);
       $prep->execute($param);
       // var_dump($prep);
       return $prep;

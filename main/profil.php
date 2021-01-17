@@ -1,3 +1,13 @@
+<?php
+require_once "../functions/session.php";
+force_connexion();
+// var_dump(is_connected());
+// var_dump(isset($_POST['logofile']));
+if (is_connected() && isset($_POST['logofile'])){
+    // var_dump($_POST['logofile']);
+    $_SESSION['logo'] = $_POST['logofile'];
+}
+?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
@@ -6,16 +16,7 @@
 <link rel="icon" href="/ressources/images/favicon.ico"/>
 </head>
 <body>
-<?php
-require_once "../functions/session.php";
-force_connexion();
-// var_dump(is_connected());
-// var_dump(isset($_POST['logofile']));
-if (is_connected() && isset($_POST['logofile'])){
-    var_dump($_POST['logofile']);
-    $_SESSION['logo'] = $_POST['logofile'];
-}
-require_once "../misc/header.php";?>
+<?php require_once "../misc/header.php";?>
 <div class = body>
     <div class=center>
         <h1 class=blue>Profil</h1>

@@ -17,7 +17,7 @@ require_once "../classes/comment.php";
 //     $pdo->query("INSERT INTO commentaires VALUES( null , '$content' , 0 , CURRENT_TIMESTAMP , '$auteur' , '$page_id' );");
 // }
 if (isset($page_id)){
-    $request = request('SELECT * FROM COMMENTAIRES WHERE page_id= ? ;',[$page_id]); // On pourrait les trier par nombre de likes -> à implementer
+    $request = request('SELECT * FROM commentaires WHERE page_id= ? ;',[$page_id]); // On pourrait les trier par nombre de likes -> à implementer
     $res = $request->fetchAll(PDO::FETCH_OBJ);
     $nb_com = $request->rowCount();
     if ($nb_com>1) $pluriel = 's';

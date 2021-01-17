@@ -1,9 +1,12 @@
 <?php 
 require_once "../functions/db.php";
-if (!isset($_GET['q'])) header('Location:/main/accueil');
+if (!isset($_GET['q'])){
+    header('Location:/main/accueil');
+    exit();
+}
 
 function getAuteurInfos($auteur_id){
-    $request = request('SELECT login,icon_id FROM USERS WHERE user_id= ?;',[$auteur_id]);
+    $request = request('SELECT login,icon_id FROM users WHERE user_id= ?;',[$auteur_id]);
     $count = $request->rowCount();
     // var_dump($count);
     if($count==1){
@@ -16,7 +19,7 @@ function getAuteurInfos($auteur_id){
 }
 
 function getAuteurId($auteur_login){
-    $request = request('SELECT user_id FROM USERS WHERE login= ?;',[$auteur_login]);
+    $request = request('SELECT user_id FROM users WHERE login= ?;',[$auteur_login]);
     $count = $request->rowCount();
     if($count==1){
         return $request->fetchColumn();
@@ -26,7 +29,7 @@ function getAuteurId($auteur_login){
     }
 }
 
-$query = $_GET['q'];
+$query = htmlspecialchars($_GET['q']);
 $result = request("SELECT * FROM tableaux WHERE auteur_id = ? OR title = ?", [getAuteurId($query),$query]);
 $resultNrows = $result->rowCount();
 

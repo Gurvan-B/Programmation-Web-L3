@@ -1,8 +1,9 @@
 <?php
 require_once "../functions/db.php";
-
+require_once "../functions/session.php";
+session_start();
 function getAuteurInfos($auteur_id){
-    $request = request('SELECT login,icon_id FROM USERS WHERE user_id= ?;',[$auteur_id]);
+    $request = request('SELECT login,icon_id FROM users WHERE user_id= ?;',[$auteur_id]);
     $count = $request->rowCount();
     // var_dump($count);
     if($count==1){
@@ -75,7 +76,7 @@ function getOnlyDate($timestamp){
             $tab_id = $row['tab_id']?>
             <tr>
                 <td>
-                    <a href= " <?= "/user_lists/user_list?tab_id=$tab_id"?> " class=tablink>  <?=$row['title']; ?></a>
+                    <a href= " <?= "/user_lists/user_list?tab_id=$tab_id"?>" class=tablink><?=$row['title']; ?></a>
                 </td>
 
                 <td>

@@ -8,21 +8,21 @@ require_once "../functions/session.php";
 // }
 /////////////-ATTEMPS-////////////////
   function incAttemps(){
-    request('UPDATE ESSAIS SET nessais=nessais+1 WHERE ip = ? ;',[$_SERVER['REMOTE_ADDR']]);
+    request('UPDATE essais SET nessais=nessais+1 WHERE ip = ? ;',[$_SERVER['REMOTE_ADDR']]);
   }
 
   function setAttemps($attemps){
-    request("UPDATE ESSAIS SET nessais=$attemps WHERE ip = ? ;",[$_SERVER['REMOTE_ADDR']]);
+    request("UPDATE essais SET nessais=$attemps WHERE ip = ? ;",[$_SERVER['REMOTE_ADDR']]);
   }
 
   function getAttemps(){
-    $prep = request('SELECT nessais FROM ESSAIS WHERE ip= ? ;',[$_SERVER['REMOTE_ADDR']]);
+    $prep = request('SELECT nessais FROM essais WHERE ip= ? ;',[$_SERVER['REMOTE_ADDR']]);
     return $prep->fetchColumn();
   }
 
   /////////////-ICON-////////////////
   function getIconID($login){
-    $prep = request('SELECT icon_id FROM USERS WHERE login= ? ;',[$login]);
+    $prep = request('SELECT icon_id FROM users WHERE login= ? ;',[$login]);
     return $prep->fetchColumn();
   }
   // $sql = 'SELECT nessais FROM ESSAIS WHERE ip= ? ;';
@@ -38,7 +38,7 @@ require_once "../functions/session.php";
   // }
 if ( isset($_GET['crea']) && $_GET['crea'] == 1){
   if (isset($_POST['clog']) && isset($_POST['cpass'])){
-    $prep = request('SELECT * FROM USERS WHERE login= ?;',[$_POST['clog']]); // Empêche ddeux utilisateurs d'avoir le même login
+    $prep = request('SELECT * FROM users WHERE login= ?;',[$_POST['clog']]); // Empêche ddeux utilisateurs d'avoir le même login
     $count = $prep->rowCount();
     if($count==0){
         $hashmdp = md5($_POST["cpass"]);
@@ -46,7 +46,7 @@ if ( isset($_GET['crea']) && $_GET['crea'] == 1){
         // var_dump($_POST['clog']);
         // request('INSERT INTO users VALUES( ? , ? );',[$_POST['clog'],$hashmdp]);
 
-        request('INSERT INTO USERS (login,mdp) VALUES( ? , ? );',[$_POST['clog'],$hashmdp]);
+        request('INSERT INTO users (login,mdp) VALUES( ? , ? );',[$_POST['clog'],$hashmdp]);
         $_POST['log'] = $_POST['clog'];
         $_POST['pass'] = $_POST['cpass'];
     } else header("Location: creation");
@@ -59,8 +59,9 @@ if (isset($_POST["log"]) && isset($_POST["pass"])){
   // echo $log;
   // $pass = htmlspecialchars($_POST["pass"]);
   $hashmdp = md5($_POST["pass"]);
-  $prep = request('SELECT * FROM USERS WHERE login= ? AND mdp= ? ;',[$_POST['log'],$hashmdp]);
+  $prep = request('SELECT * FROM users WHERE login= ? AND mdp= ? ;',[$_POST['log'],$hashmdp]);
   $count = $prep->rowCount();
+  $res = $prep->fetch(PDO::FETCH_OBJ);
   if($count<=0){
     incAttemps();
     unset($_SESSION['connecte']);
@@ -75,11 +76,10 @@ if (isset($_POST["log"]) && isset($_POST["pass"])){
     header("Location:/login/connexion?erreur=1");
     exit();
   } else {
-    $user_id = $prep->fetchColumn();
-    $_SESSION['id'] = $user_id;
-    $_SESSION['login'] = $_POST["log"];
+    $_SESSION['id'] = $res->user_id;
+    $_SESSION['login'] = $res->login;
     $_SESSION['connecte'] = 1;
-    $_SESSION['icon_id'] = getIconID($_POST["log"]);
+    $_SESSION['icon_id'] = getIconID($res->login);
     setAttemps(0);
     // var_dump(empty($_SESSION['connecte']));
     // var_dump(is_connected());

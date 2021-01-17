@@ -16,7 +16,7 @@ class Comment {
     public function printlist(){
         $auteur_name = 'Compte supprimé';
         $auteur_icon_id = '-none';
-        $request = request('SELECT login,icon_id FROM USERS WHERE user_id= ?;',[$this->auteur_id]);
+        $request = request('SELECT login,icon_id FROM users WHERE user_id= ?;',[$this->auteur_id]);
         $count = $request->rowCount();
         if($count==1){
             $res= $request->fetch(PDO::FETCH_OBJ);

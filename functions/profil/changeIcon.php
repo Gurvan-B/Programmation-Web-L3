@@ -9,7 +9,7 @@ if (is_connected() && isset($_GET['icon'])){
         unlink("../../ressources/images/icons/icon$oldId.png");
     }
     $icon_id = $_GET['icon'];
-    request("UPDATE USERS SET icon_id= ? WHERE login = ? ;",[$icon_id,$_SESSION['login']]);
+    request("UPDATE users SET icon_id= ? WHERE login = ? ;",[$icon_id,$_SESSION['login']]);
     $_SESSION['icon_id'] = $icon_id;
 }
 header("Location:/main/profil");

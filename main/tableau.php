@@ -64,7 +64,7 @@ if ($resultNrows > 0) :
 	foreach ($result as $row) : ?>
 		<tr>
 			<td>
-			<a href= " <?php echo "https://www.hearthstone-decks.com/carte/voir/" . $row['nomCarte']; ?> " class=tablink >  <?php echo $row['nomCarte']; ?>  </a>
+			<a href= " <?php echo "https://www.hearthstone-decks.com/carte/voir/" . $row['nomCarte']; ?> " class=tablink >  <?php echo $row['nomCarte']; ?></a>
 			</td>
 
 			<td>
