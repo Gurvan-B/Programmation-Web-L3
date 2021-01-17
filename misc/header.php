@@ -9,7 +9,7 @@
             <li>
                 <form action="/user_lists/searchlists" method='GET'>
                 <!-- <img src="/ressources/images/loupe.png" alt="loupe" height=10px width=10px> -->
-                    <input class=searchinput name='q' type="text" placeholder="Rechercher" required autocomplete="off"/>
+                    <input class=searchinput name='q' type="text" placeholder="Rechercher" autocomplete="off"/>
                     <!-- <input type="submit" style='display:none'> -->
                 </form>
             </li>

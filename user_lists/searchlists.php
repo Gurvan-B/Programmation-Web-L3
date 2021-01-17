@@ -5,33 +5,40 @@ if (!isset($_GET['q'])){
     exit();
 }
 
-function getAuteurInfos($auteur_id){
-    $request = request('SELECT login,icon_id FROM users WHERE user_id= ?;',[$auteur_id]);
-    $count = $request->rowCount();
-    // var_dump($count);
-    if($count==1){
-        $res= $request->fetch(PDO::FETCH_OBJ);
-        return $res;
-    } else{
-        echo 'erreur dans getAuteurInfos';
-        return null;
-    }
-}
+// function getAuteurInfos($auteur_id){
+//     $request = request('SELECT login,icon_id FROM users WHERE user_id= ?;',[$auteur_id]);
+//     $count = $request->rowCount();
+//     // var_dump($count);
+//     if($count==1){
+//         $res= $request->fetch(PDO::FETCH_OBJ);
+//         return $res;
+//     } else{
+//         echo 'erreur dans getAuteurInfos';
+//         return null;
+//     }
+// }
 
-function getAuteurId($auteur_login){
-    $request = request('SELECT user_id FROM users WHERE login= ?;',[$auteur_login]);
-    $count = $request->rowCount();
-    if($count==1){
-        return $request->fetchColumn();
-    } else{
-        echo 'erreur dans getId';
-        return null;
-    }
-}
+// function getAuteurId($auteur_login){
+//     $request = request('SELECT user_id FROM users WHERE login= ?;',[$auteur_login]);
+//     $count = $request->rowCount();
+//     if($count==1){
+//         return $request->fetchColumn();
+//     } else{
+//         echo 'erreur dans getId';
+//         return null;
+//     }
+// }
 
 $query = htmlspecialchars($_GET['q']);
-$result = request("SELECT * FROM tableaux WHERE auteur_id = ? OR title = ?", [getAuteurId($query),$query]);
-$resultNrows = $result->rowCount();
+if ($query!=""){
+    $result = request(
+        "SELECT * FROM tableaux,users WHERE ( login LIKE ? OR title LIKE ? ) AND tableaux.auteur_id=users.user_id",
+        ["%".$query."%","%".$query."%"]);
+    $resultNrows = $result->rowCount();
+    // $result = Les n-uplets de tableaux et users dont le login de l'auteur ou le titre contient $query
+} else {
+    $resultNrows = 0;
+}
 
 ?>
 <!DOCTYPE html>
@@ -48,7 +55,7 @@ $resultNrows = $result->rowCount();
 require_once "../misc/header.php"; ?>
 <div class = "body">
     <h1 class = "blue">Résultats de recherche</h1>
-    <h2 class = "blue" style='margin-left:15px'>Résultats de la recherche pour "<?=$query?>"</h2>
+    <h2 class = "blue" style='margin-left:15px'>Résultats de la recherche pour " <i><?=$query?></i> "</h2>
     <!--///////////////////////////////// -->
     <table>
     <thead>
@@ -74,14 +81,13 @@ require_once "../misc/header.php"; ?>
 
                 <td>
                     <div class=flexcenter>
-                        <?php $auteurInfos = getAuteurInfos($row['auteur_id']);?>
-                        <img src="/ressources/images/icons/icon<?= $auteurInfos->icon_id ?>.png" height=40px width=40px/>
-                        <span class=autopadding><?=$auteurInfos->login ?></span>
+                        <img src="/ressources/images/icons/icon<?= $row['icon_id'] ?>.png" height=40px width=40px/>
+                        <span class=autopadding><?=$row['login'] ?></span>
                     </div>
                 </td>
 
                 <td>
-                    <?= $row['date_maj']; ?>
+                    <?= str_replace("-"," / ",$row['date_maj']); ?>
                 </td>
             </tr>
             <?php
