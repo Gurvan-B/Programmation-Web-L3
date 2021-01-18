@@ -9,9 +9,14 @@ function toggleModify(){
         nodemdp.removeChild(nodebuttonmdp);
         let newul = document.createElement('ul');
         newul.classList.add('formul');
-        newul.innerHTML = "<form id=formmdp method='POST' action='/functions/profil/updatePass'><li><input class=smallinput id=p1 name=newpass type=password placeholder='Nouveau mot de passe' required/></li><li><input id=p2 class=smallinput type=password placeholder='Confirmer le mot de passe' required/></li></form><li><button class=smallbutton onCLick=verifymdp()>Envoyer</button></li>";
+        newul.innerHTML = 
+        "<form id=formmdp method='POST' action='/functions/profil/updatePass'>"+
+            "<li><input class=smallinput id=p1 name=newpass type=password placeholder='Nouveau mot de passe' required/></li>"+
+            "<li><input id=p2 class=smallinput type=password placeholder='Confirmer le mot de passe' required/></li>"+
+            "<li><input type=submit class=smallbutton onCLick=verifymdp()></input></li>"+
+        "</form>";
         nodemdp.appendChild(newul);
-        // Pourrait être beaucoup plus propre et simple en utilisant css mais j'ai choisit d'essayer cette méthode
+        // Pourrait être beaucoup plus propre et simple en utilisant css (propriété display) mais je choisit d'essayer cette méthode
     }
 }
 
@@ -19,17 +24,17 @@ function verifymdp(){
     let p1 = document.getElementById("p1");
     let p2 = document.getElementById("p2");
     let formmdp= document.getElementById("formmdp");
-    if (p1.value == p2.value && p1.value!=""){
-        // alert("Mots de passe corrects");
-        formmdp.submit();
-    } else {
-        // alert("Mots de passe différents");
-        p1.value="";
-        p2.value="";
-        alert('Veuillez entrer deux mots de passe identiques')
-        //formmdp.childNodes('p').innerHTML = "Mots de passe différents";
-        
-    }
+    formmdp.addEventListener("submit",function(e){
+        e.preventDefault(); // Permet de choisir ou non d'envoyer le formulaire
+        if (p1.value == p2.value && p1.value!=""){
+            // alert("Mots de passe corrects");
+            formmdp.submit();
+        } else {
+            p1.value="";
+            p2.value="";
+            alert('Veuillez entrer deux mots de passe identiques');
+        }
+    });
 }
 
 function deleteProfile(){

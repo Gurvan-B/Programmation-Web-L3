@@ -8,7 +8,7 @@ $result = request("SELECT * FROM tableaux WHERE auteur_id = ? ORDER BY date_maj 
 $resultNrows = $result->rowCount();
 ?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
 <head>
 <title>Mes listes</title>
 <link href="/css/mystyle.css?version=3" rel="stylesheet" type="text/css"/>

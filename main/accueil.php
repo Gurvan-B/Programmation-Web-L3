@@ -23,7 +23,7 @@ function getOnlyDate($timestamp){
 ?>
 
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
 <head>
 <title>Accueil</title>
 <link href="/css/mystyle.css?version=7" rel="stylesheet" type="text/css"/>
@@ -33,20 +33,7 @@ function getOnlyDate($timestamp){
 <body>
 <?php require_once "../misc/header.php";?>
 <div class = body>
-    <h1 class = "blue">Accueil</h1>
-    <p class = "bordure">
-        Hearthstone is a free-to-play online digital collectible card game developed and published by Blizzard Entertainment. 
-        Originally subtitled Heroes of Warcraft, Hearthstone builds upon the existing lore of the Warcraft series by using the same elements, 
-        characters, and relics. It was first released for Microsoft Windows and macOS in March 2014, with ports for iOS and Android releasing later that year. 
-        The game features cross-platform play, allowing players on any supported device to compete with one another, restricted only by geographical region account limits.
-    </p>
-    
-    <p class = "bordure">
-        Hearthstone is a free-to-play online digital collectible card game developed and published by Blizzard Entertainment. 
-        Originally subtitled Heroes of Warcraft, Hearthstone builds upon the existing lore of the Warcraft series by using the same elements, 
-        characters, and relics. It was first released for Microsoft Windows and macOS in March 2014, with ports for iOS and Android releasing later that year. 
-        The game features cross-platform play, allowing players on any supported device to compete with one another, restricted only by geographical region account limits.
-    </p>
+    <h1 class = "blue">Accueil</h1>    
     <p class = "bordure">
         Hearthstone is a free-to-play online digital collectible card game developed and published by Blizzard Entertainment. 
         Originally subtitled Heroes of Warcraft, Hearthstone builds upon the existing lore of the Warcraft series by using the same elements, 
@@ -98,6 +85,20 @@ function getOnlyDate($timestamp){
 </div>
     <video class=center src="/ressources/videos/trailer.mp4" poster="/ressources/images/logo.png" width=40% autoplay controls muted></video>
 </div>
+
+    <p class = "bordure">
+        Hearthstone is a free-to-play online digital collectible card game developed and published by Blizzard Entertainment. 
+        Originally subtitled Heroes of Warcraft, Hearthstone builds upon the existing lore of the Warcraft series by using the same elements, 
+        characters, and relics. It was first released for Microsoft Windows and macOS in March 2014, with ports for iOS and Android releasing later that year. 
+        The game features cross-platform play, allowing players on any supported device to compete with one another, restricted only by geographical region account limits.
+    </p>
+
+    <p class = "bordure">
+        Hearthstone is a free-to-play online digital collectible card game developed and published by Blizzard Entertainment. 
+        Originally subtitled Heroes of Warcraft, Hearthstone builds upon the existing lore of the Warcraft series by using the same elements, 
+        characters, and relics. It was first released for Microsoft Windows and macOS in March 2014, with ports for iOS and Android releasing later that year. 
+        The game features cross-platform play, allowing players on any supported device to compete with one another, restricted only by geographical region account limits.
+    </p>
 
     <p class = "bordure">
         Hearthstone is a free-to-play online digital collectible card game developed and published by Blizzard Entertainment. 
