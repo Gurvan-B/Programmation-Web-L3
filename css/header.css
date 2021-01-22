@@ -55,7 +55,7 @@ header {
 }
 
  .link{
-    transition: all 0.3s ease 0s;
+    transition: all 0.2s ease 0s;
     padding-left:30px;
     padding-right:30px;
     user-select: none;
@@ -67,7 +67,7 @@ header {
 }
 
 .link2 li{
-    transition: all 0.3s ease 0s;
+    transition: all 0.2s ease 0s;
     padding-left:0px;
     padding-right:0px;
     user-select: none;
@@ -81,7 +81,8 @@ header {
 
 button.connected_btn, button.connect_btn {
     /* background-color: rgba(0,136,169,1); */
-    background-color: rgba(47,36,28,1);
+    /* background-color: rgba(47,36,28,1); */
+    background-color: rgba(47,36,28,0.8);
     border:none;
     border-radius:50px;
     cursor: pointer;
@@ -93,17 +94,22 @@ button.connected_btn, button.connect_btn {
 
 button.connected_btn {
     padding: 2px 5px 2px 12px;
+    border:1px solid black;
     /* padding-left: 20px; */
 }
 
 button.connect_btn {
     padding: 9px 25px;
+    border:1px solid black;
 }
 
 
 button:hover {
     /* background-color: rgba(0,136,169,0.8); */
-    background-color: rgba(47,36,28,0.8);
+    
+    /* background-color: rgba(47,36,28,0.8); */
+    
+    box-shadow: 0 0 5px 0 rgba(47,36,28,0.8);;
   }
 
 #dropdown {

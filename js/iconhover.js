@@ -1,8 +1,13 @@
-var iconimgs = document.getElementsByClassName("iconimg");
+
 // iconimsg.addEventListener("mouseover",upscaleImg());
 // iconimsg.addEventListener("mouseleave",upscaleImg());
 
-for (var i = 0 ; i < iconimgs.length; i++) {
+
+// Gère la partie survol des icon dans le profil //
+
+
+var iconimgs = document.getElementsByClassName("iconimg");
+for (var i = 0 ; i < iconimgs.length; i++) { // On parcours tous les éléments de classe iconimg
     let button = document.createElement("button");
     button.innerHTML="Choisir";
     button.classList.add("smallbutton");

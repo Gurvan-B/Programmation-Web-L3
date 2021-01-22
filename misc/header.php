@@ -1,5 +1,5 @@
 <?php require_once "../functions/session.php"; ?>
-<link href="/css/header.css?version=12" rel="stylesheet" type="text/css"/>
+<link href="/css/header.css?version=14" rel="stylesheet" type="text/css"/>
 <header>
 <a class = "logo" href="/main/accueil"><img class = "logo" src = "/ressources/images/logo.png" alt="logo" height="60" /></a>
 <nav>
@@ -15,7 +15,7 @@
             </li>
             <li><a class="link" href='/user_lists/mylists'>Mes listes</a></li>
             <li><a class="link" href='/main/tableau'>Tableau</a></li>
-            <li><a class="link" href='#'>Contact</a></li>
+            <li><a class="link" href='/main/ajax.html'>Tests</a></li>
         </ul>
     </nav>
 <?php if (is_connected()):?>

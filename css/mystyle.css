@@ -281,8 +281,13 @@ ul.formul li button{
 }
 
 .xsmallinput {
-  width: 180px;
+  width: 100px;
   height: 20px;
+}
+
+.xsmallinput:hover {
+  border:solid 1px #0078D7;
+  background-color: #E5F1FB;
 }
 
 .smallinput {

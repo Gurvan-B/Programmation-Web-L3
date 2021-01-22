@@ -1,6 +1,4 @@
 <?php
-// require_once "../functions/session.php";
-// session_start();
 
 if (isset($_GET['tab_id'])){
     require_once "../functions/db.php";
@@ -23,7 +21,7 @@ if (isset($_GET['tab_id'])){
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
 <head>
-<title><?=$title?>-Tableau</title>
+<title><?=$title?> | Tableau</title>
 <link href="/css/mystyle.css?version=26" rel="stylesheet" type="text/css"/>
 <link href="/css/tabstyle.css?version=12" rel="stylesheet" type="text/css"/>
 <link rel="icon" href="/ressources/images/favicon.ico"/>
@@ -59,19 +57,19 @@ if ($resultNrows > 0) :
 	foreach ($result as $row) : ?>
 		<tr>
 			<td>
-			<a href= "<?php echo "https://www.hearthstone-decks.com/carte/voir/" . $row['nom']; ?>" class=tablink ><?= $row['nom']; ?></a>
+			<a href= "<?= "https://www.hearthstone-decks.com/carte/voir/" . $row['nom']; ?>" class=tablink ><?= $row['nom']; ?></a>
 			</td>
 
 			<td>
-			<?php echo $row['classe']; ?>
+			<?= $row['classe']; ?>
 			</td>
 
 			<td>
-			<?php echo $row['type']; ?>
+			<?= $row['type']; ?>
 			</td>
 
 			<td>
-			<?php echo $row['rarete']; ?>
+			<?= $row['rarete']; ?>
 			</td>
 
 			<td>

@@ -5,6 +5,7 @@ $dbname = 'inventory';
 $host = 'localhost';
 $port = 3308;
 $pdo;
+// Paramètres à modifier en fonction de la base de donnée
 try {
 
     $pdo = new PDO("mysql:host=$host;port=$port;dbname=$dbname", $user, $password);

@@ -25,17 +25,11 @@ require_once "../functions/session.php";
     $prep = request('SELECT icon_id FROM users WHERE login= ? ;',[$login]);
     return $prep->fetchColumn();
   }
-  // $sql = 'SELECT nessais FROM ESSAIS WHERE ip= ? ;';
-  // $prep = $pdo->prepare($sql);
-  // $prep->execute([$_SERVER['REMOTE_ADDR']]);
-  // $count = $prep->rowCount();
-  // if($count>0){
-  //     $attemps = $prep->fetchColumn();
-  // } else {
-  //   $sql = 'INSERT INTO ESSAIS VALUES ( ? , 0 );';
-  //   $prep = $pdo->prepare($sql);
-  //   $prep->execute([$_SERVER['REMOTE_ADDR']]);
-  // }
+
+
+
+// Partie création de profil //
+
 if ( isset($_GET['crea']) && $_GET['crea'] == 1){
   if (isset($_POST['clog']) && isset($_POST['cpass'])){
     $prep = request('SELECT * FROM users WHERE login= ?;',[$_POST['clog']]); // Empêche ddeux utilisateurs d'avoir le même login
@@ -52,6 +46,9 @@ if ( isset($_GET['crea']) && $_GET['crea'] == 1){
     } else header("Location: creation");
   }
 }
+// Si on a bien créé un compte, on connecte automatiquement
+
+// Partie connexion //
 
 session_start();
 if (isset($_POST["log"]) && isset($_POST["pass"])){
@@ -65,12 +62,7 @@ if (isset($_POST["log"]) && isset($_POST["pass"])){
   if($count<=0){
     incAttemps();
     unset($_SESSION['connecte']);
-    // echo "1";
-    // var_dump($prep);
-    // var_dump($count);
-    // var_dump(empty($_SESSION['connecte']));
-    // var_dump(is_connected());
-    if (getAttemps()>3){
+    if (getAttemps()>3){ // On ne fait pas de différence si il y a eu trop de tentatives échouées, mais il suffirait de changer le header
       header("Location:/login/connexion?erreur=1");
     }
     header("Location:/login/connexion?erreur=1");
@@ -90,4 +82,19 @@ if (isset($_POST["log"]) && isset($_POST["pass"])){
     exit();
   }
 }
+
+  // Code non utilisé//
+
+  // $sql = 'SELECT nessais FROM ESSAIS WHERE ip= ? ;';
+  // $prep = $pdo->prepare($sql);
+  // $prep->execute([$_SERVER['REMOTE_ADDR']]);
+  // $count = $prep->rowCount();
+  // if($count>0){
+  //     $attemps = $prep->fetchColumn();
+  // } else {
+  //   $sql = 'INSERT INTO ESSAIS VALUES ( ? , 0 );';
+  //   $prep = $pdo->prepare($sql);
+  //   $prep->execute([$_SERVER['REMOTE_ADDR']]);
+  // }
  ?>
+

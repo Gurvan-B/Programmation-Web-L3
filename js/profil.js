@@ -19,13 +19,13 @@ function toggleModify(){
         // Pourrait être beaucoup plus propre et simple en utilisant css (propriété display) mais je choisit d'essayer cette méthode
     }
 }
-
+// Function appellée par le boutton du formulaire dans newul
 function verifymdp(){
     let p1 = document.getElementById("p1");
     let p2 = document.getElementById("p2");
     let formmdp= document.getElementById("formmdp");
     formmdp.addEventListener("submit",function(e){
-        e.preventDefault(); // Permet de choisir ou non d'envoyer le formulaire
+        e.preventDefault(); // Permet de d'empêcher l'envoit par défaut du formulaire quand le boutton est pressé
         if (p1.value == p2.value && p1.value!=""){
             // alert("Mots de passe corrects");
             formmdp.submit();

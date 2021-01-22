@@ -39,7 +39,7 @@ if (isset($page_id)){
                     else $getparams= "";
                     ?>
                     <form action="/functions/user_lists/addComment?page_id=<?=$page_id?>&path=<?=$_SERVER['PHP_SELF'].$getparams?>" method="post">   
-                        <input class=addComment type="text" name="contenu" maxlength="1000" placeholder = "Ajouter un commentaire" required autocomplete="off"/>
+                        <input class=addComment type="text" name="contenu" maxlength="1000" placeholder = "Ajouter un commentaire" autocomplete="off"/>
                         <input class=smallbutton type="submit" value="Ajouter"/>
                     </form>
                 </div>

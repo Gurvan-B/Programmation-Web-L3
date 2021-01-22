@@ -5,30 +5,6 @@ if (!isset($_GET['q'])){
     exit();
 }
 
-// function getAuteurInfos($auteur_id){
-//     $request = request('SELECT login,icon_id FROM users WHERE user_id= ?;',[$auteur_id]);
-//     $count = $request->rowCount();
-//     // var_dump($count);
-//     if($count==1){
-//         $res= $request->fetch(PDO::FETCH_OBJ);
-//         return $res;
-//     } else{
-//         echo 'erreur dans getAuteurInfos';
-//         return null;
-//     }
-// }
-
-// function getAuteurId($auteur_login){
-//     $request = request('SELECT user_id FROM users WHERE login= ?;',[$auteur_login]);
-//     $count = $request->rowCount();
-//     if($count==1){
-//         return $request->fetchColumn();
-//     } else{
-//         echo 'erreur dans getId';
-//         return null;
-//     }
-// }
-
 $query = htmlspecialchars($_GET['q']);
 if ($query!=""){
     $result = request(
@@ -62,7 +38,7 @@ require_once "../misc/header.php"; ?>
         <tr>
             <th>Titre</th>
             <th>Auteur</th>
-            <th>Date création</th>
+            <th>Date Mise à jour</th>
         </tr>
     </thead>
     <tbody>
@@ -99,3 +75,33 @@ require_once "../misc/header.php"; ?>
 <?php require_once "../misc/footer.html";?>
 </body>
 </html>
+
+<?php
+
+// Non utilisé
+
+// function getAuteurInfos($auteur_id){
+//     $request = request('SELECT login,icon_id FROM users WHERE user_id= ?;',[$auteur_id]);
+//     $count = $request->rowCount();
+//     // var_dump($count);
+//     if($count==1){
+//         $res= $request->fetch(PDO::FETCH_OBJ);
+//         return $res;
+//     } else{
+//         echo 'erreur dans getAuteurInfos';
+//         return null;
+//     }
+// }
+
+// function getAuteurId($auteur_login){
+//     $request = request('SELECT user_id FROM users WHERE login= ?;',[$auteur_login]);
+//     $count = $request->rowCount();
+//     if($count==1){
+//         return $request->fetchColumn();
+//     } else{
+//         echo 'erreur dans getId';
+//         return null;
+//     }
+// }
+
+?>

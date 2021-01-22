@@ -24,6 +24,8 @@ $query = 'SELECT * FROM carte;';
 $result = $pdo->query($query);
 $resultNrows = $result->rowCount();
 
+// PAGE TEST DES TABLEAUX //
+
 ?>
 
 <!DOCTYPE html>

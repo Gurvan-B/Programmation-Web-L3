@@ -32,7 +32,7 @@ $resultNrows = $result->rowCount();
                 <option value= "#669900">Vert</option>
                 <option value= "#ff9f00">Orange</option>
 			</select>
-            <!-- <input type="color"/> -->
+            <!-- <input type="color"/> --> 
             <input class=largebutton type="submit" value=Créer />
         </form>
     </div>

@@ -12,7 +12,7 @@ if (is_connected() && isset($_POST['logofile'])){
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
 <head>
 <title>Profil</title>
-<link href="/css/mystyle.css?version=22" rel="stylesheet" type="text/css"/>
+<link href="/css/mystyle.css?version=23" rel="stylesheet" type="text/css"/>
 <link rel="icon" href="/ressources/images/favicon.ico"/>
 </head>
 <body>
@@ -25,10 +25,6 @@ if (is_connected() && isset($_POST['logofile'])){
         <div>
         <h2>Changer la photo de profil</h2>
             <ul class=icons>
-                <!-- <li><img class="iconimg" src="http://192.168.1.12/pw/projet/ressources/images/icons/icon1.png" alt="" onMouseOver="this.classList.toggle('upscale');"/></li>
-                <li><img class="iconimg" src="http://192.168.1.12/pw/projet/ressources/images/icons/icon1.png" alt="" onClick="this.classList.toggle('upscale');"/></li>
-                <li><img class=iconimg src="http://192.168.1.12/pw/projet/ressources/images/icons/icon1.png" alt="" onClick="this.classList.toggle('upscale');"/></li>
-                <li><img class=iconimg src="http://192.168.1.12/pw/projet/ressources/images/icons/icon1.png" alt="" onClick="this.classList.toggle('upscale');"/></li> -->
                 <li><img src="/ressources/images/icons/icon<?=$_SESSION['icon_id']?>.png" alt="" height=100px width=100px/>
                     <div class="center blue">Votre photo</div>
                 </li>
@@ -43,11 +39,6 @@ if (is_connected() && isset($_POST['logofile'])){
                     </form>
                 </li>
             </ul>
-            <!-- <form enctype="multipart/form-data" method="post" action=profil>
-            <input type="hidden" name="MAX_FILE_SIZE" value="30000"/>
-            <input name='logofile' class=file type="file"/>
-            <input type="submit" class=smallbutton></input>
-            </form> -->
         </div>
         <div id=profilmdp>
             <h2>Changer de mot de passe</h2>
