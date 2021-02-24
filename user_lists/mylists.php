@@ -22,7 +22,7 @@ $resultNrows = $result->rowCount();
     <h1 class = "blue">Gérer vos listes</h1>
     <div class="newlist">
         <h2 class = "blue">Créer une liste</h2>
-        <form action="/functions/user_lists/newTab" method='POST'>
+        <form action="/functions/user_lists/newtab" method='POST'>
             <input class=largeinput type="text" name=title placeholder="Titre de la page" required autocomplete="off"/>
             <select class=largeinput name=color required>
 				<option value= "null" >Couleur de la page</option>

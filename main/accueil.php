@@ -33,7 +33,7 @@ function getOnlyDate($timestamp){
 <body>
 <?php require_once "../misc/header.php";?>
 <div class = body>
-    <h1 class = "blue">Accueil</h1>    
+    <h1 class = "blue">Accueil</h1>
     <p class = "bordure">
     Ce site web a pour objectif de rassembler des bases de données en lien avec Hearthstone, en particulier, des listes de cartes ( des decks ).
     Il est possible pour les utilisateurs enregistrés, de créer leurs propres bases de données,de partager leurs liens, de commenter les listes 

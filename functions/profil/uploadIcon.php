@@ -17,10 +17,10 @@ if (isset($_POST['submit'])){
         if($fileError === 0 && $fileSize < 400000){
             $fileId = uniqid('~',true);
             $fileUploadName = "icon$fileId.$fileExtension"; // Créer un nom unique (proportionnel au temps en millisecondes au moment ou uniqid() est appelée )
-            print_r($fileId);
+            // print_r($fileId);
             $uploadPath = "../../ressources/images/icons/$fileUploadName"; // Chemin de destination
             move_uploaded_file($fileTmpName,$uploadPath);
-            header("Location:changeIcon.php?icon=$fileId");
+            header("Location:/functions/profil/changeIcon?icon=$fileId");
             exit();
         } else echo('fichier trop volumineux !');
     } else{

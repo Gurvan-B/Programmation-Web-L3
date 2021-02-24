@@ -13,5 +13,6 @@ if (isset($_GET['page_id']) && isset($_POST['contenu']) && is_connected()){
 }
 if (isset($_GET['path'])) $path = htmlspecialchars($_GET['path']);
 else $path = "/misc/404";
-header("Location:$path");
+// header("Location:$path");
+header("Location:".$_SERVER['HTTP_REFERER']);
 ?>
