@@ -8,6 +8,17 @@ Pour installer le projet, il suffit de
 
 Vous pouvez voir une version déployée du projet à l'adresse suivante: https://pw-projetgb.planethoster.world
 
+Ecrans:
+
+- Un exemple de la page d'un deck
+
+  ![Capture d'écran 2023-10-27 154858](https://github.com/Gurvan-B/Programmation-Web-L3/assets/74820699/ae40dec5-2351-4293-a827-a512caf91526)
+
+
+- Page profil utilisateur
+
+![Capture d'écran 2023-10-27 155006](https://github.com/Gurvan-B/Programmation-Web-L3/assets/74820699/06f96a88-7abe-4689-bc2f-ee3d2ee22a99)
+
 
 Voici les principales choses qu'il est possible de faire sur le site web:
 
