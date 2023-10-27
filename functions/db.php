@@ -3,7 +3,7 @@ $user = 'root';
 $password = '';
 $dbname = 'inventory';
 $host = 'localhost';
-$port = 3308;
+$port = 3306;
 $pdo;
 // Paramètres à modifier en fonction de la base de donnée
 try {
